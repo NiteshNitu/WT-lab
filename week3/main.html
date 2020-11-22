@@ -9,13 +9,7 @@
 				xmldoc.load(dname);
 				return xmldoc;
 			}
-			function loadXMLSync(url) {
-				var xhr = new XMLHttpRequest()
-				xhr.open('GET', url, false)
-				xhr.setRequestHeader('Content-Type', 'text/xml')
-				xhr.send()
-				return xhr.responseXML
-			}
+			
 			function validate()
 			{
 				var i,k,j=0;
