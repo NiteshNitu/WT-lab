@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <title>Payment | Amazon</title>
+    <script>
+        function validateForm() {
+            let cardno = document.forms["payment"].cardno.value;
+            let cvv = document.forms["payment"].cvv.value;
+            let cardRegex = /[0-9]{16}/;
+            let cvvRegex = /[0-9]{3}/;
+            if (!cardRegex.test(cardno)) {
+                alert("Enter a valid card number");
+                return false;
+            }
+            if (!cvvRegex.test(cvv)) {
+                alert("Enter a  cvv");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <!--common for all pages-->
+    <h1 style="text-align: center;">Amazon</h1>
+    <div style="display:flex;justify-content: center;">
+        <a href="./index.html" style="padding:1em">Home</a>
+        <a href="./login.html" style="padding:1em">Login</a>
+        <a href="./register.html" style="padding:1em">Register</a>
+        <a href="./profile.html" style="padding:1em">Profile</a>
+        <a href="./catalog.html" style="padding:1em">Products</a>
+        <a href="./cart.html" style="padding:1em">Cart</a>
+    </div>
+    <!--common for all pages-->
+    <h1>Payment</h1>
+    <form method="post" action="success.html" name="payment" onsubmit="return validateForm()">
+        <table>
+            <tr>
+                <th>Card Number</th>
+                <td>
+                    <input type="text" name="cardno">
+                </td>
+            </tr>
+            <tr>
+                <th>Expiry Date</th>
+                <td>
+                    <select name="month">
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+
+                    <select name="year">
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                    </select>
+                </td>
+            <tr>
+                <th>CVV</th>
+                <td><input type="text" name="cvv"></td>
+            </tr>
+            </tr>
+        </table>
+        <input type="submit" value="Proceed to Pay">
+    </form>
+</body>
+
+</html>
