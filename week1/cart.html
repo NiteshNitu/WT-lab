@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <title>Cart | Amazon</title>
+</head>
+
+<body>
+    <!--common for all pages-->
+    <h1 style="text-align: center;">Amazon</h1>
+    <div style="display:flex;justify-content: center;">
+        <a href="./index.html" style="padding:1em">Home</a>
+        <a href="./login.html" style="padding:1em">Login</a>
+        <a href="./register.html" style="padding:1em">Register</a>
+        <a href="./profile.html" style="padding:1em">Profile</a>
+        <a href="./catalog.html" style="padding:1em">Products</a>
+        <a href="./cart.html" style="padding:1em">Cart</a>
+    </div>
+    <!--common for all pages-->
+    <h1>Cart</h1>
+    <table border="1px black solid" style="width:100vw">
+        <tr>
+            <th>Name</th>
+            <th>Publication</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>Harry potter</td>
+            <td>ABC Publishers</td>
+            <td>Rs 200</td>
+            <td>2</td>
+            <td><button onclick="document.location='cart.html'">Remove</button></td>
+        </tr>
+        <tr>
+            <td colspan=2>Total</td>
+            <td>Rs 400</td>
+        </tr>
+    </table>
+    <button onclick="document.location='payment.html'">
+        Pay
+    </button>
+</body>
+
+</html>

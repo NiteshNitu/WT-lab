@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			function LoadXmlDoc(dname)
+			{
+				xmldoc=new ActiveXObject("Microsoft.XMLDOM");
+				xmldoc.async="false";
+				xmldoc.load(dname);
+				return xmldoc;
+			}
+			function loadXMLSync(url) {
+				var xhr = new XMLHttpRequest()
+				xhr.open('GET', url, false)
+				xhr.setRequestHeader('Content-Type', 'text/xml')
+				xhr.send()
+				return xhr.responseXML
+			}
+			function validate()
+			{
+				var i,k,j=0;
+				xmldoc=LoadXmlDoc("student.xml");
+				var v1=myform.n2.value;
+				if(v1.length==0)
+					window.alert("enter the roll no.");
+				else
+				{
+					v1=parseInt(v1);
+					arr=xmldoc.getElementsByTagName("students");
+					for(i=0;i<arr.length;i++) {
+						var txt=xmldoc.getElementsByTagName("rollno" )[i].childNodes[0].nodeValue;
+						if(txt==v1){
+							k=i;
+							j=1;
+						}
+					}
+					if(j==1){
+						nam=xmldoc.getElementsByTagName("name" )[k].childNodes[0].nodeValue;
+						rol=xmldoc.getElementsByTagName("rollno" )[k].childNodes[0].nodeValue;
+						per=xmldoc.getElementsByTagName("percentage" )[k].childNodes[0].nodeValue;
+						document.write("<body bgcolor='pink'>" );
+						document.write("<table border=1 align='center'><tr><th colspan='2'>USERDETAILS</th></tr>" );
+						document.write("<tr><th>Name::</th><td>" +nam+"</td></tr>" );
+						document.write("<tr><th>RollNumber::</th><td>" +rol+"</td></tr>" ); 
+						document.write("<tr><th>Percentage::</th><td>" +per+"</td></tr>" ); 
+						document.write("</table></body>" );
+					}
+					else
+						window.alert("roll number not found" );
+				}
+			}
+		</script>
+	</head>
+	<body bgcolor="pink" text="red">
+		<form name="myform">
+			<table align="center">
+				<tr>
+					<td>
+						<B>RollNumber</B>
+					</td>
+					<td>
+						<input type="text" size="15" name="n2">
+					</td>
+				</tr>
+			</table>
+				<br>
+					<center>
+					<input type=submit value="submit" name="b1" onClick="validate()"></center>
+		</form>
+	</body>
+</html>
